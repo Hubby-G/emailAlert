@@ -148,7 +148,8 @@ def readBME280All(addr=DEVICE):
   hum_raw = (data[6] << 8) | data[7]
 
   #Refine temperature
-  var1 = ((((temp_raw>>3)-(dig_T1<<1)))*(dig_T2)) >> 11  var2 = (((((temp_raw>>4) - (dig_T1)) * ((temp_raw>>4) - (dig_T1))) >> 12) * (dig_T3)) >> 14
+  var1 = ((((temp_raw>>3)-(dig_T1<<1)))*(dig_T2)) >> 11
+  var2 = (((((temp_raw>>4) - (dig_T1)) * ((temp_raw>>4) - (dig_T1))) >> 12) * (dig_T3)) >> 14
   t_fine = var1+var2
   temperature = float(((t_fine * 5) + 128) >> 8);
 
@@ -183,13 +184,13 @@ def readBME280All(addr=DEVICE):
 
 
 def emailAlert(emailTemp):
-  #smtpUser = 'earthling471@gmail.com'
-  #smtpPass = '2nw3Bnvz2CY'
-  smtpUser = "laura@sowfresh.ca"
-  smtpPass = "eatyourGreens66!"
+  #smtpUser = 'me@gmail.com'
+  #smtpPass = 'xxxxxcxxxx'
+  smtpUser = "them@gmail.com"
+  smtpPass = "xxxxxxxxcxxxxxx"
 
-  #toAdd = 'greccles@gmail.com'
-  toAdd = 'laza.eccleston@gmail.com'
+  #toAdd = 'me@gmail.com'
+  toAdd = 'them@gmail.com'
   fromAdd = smtpUser
 
   subject = "Temperature in the HoopHouse"
